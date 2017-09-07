@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Evveze Docs</title>
+
+  <!--code prettifier-->
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <!--jquery-->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+  <!-- evveze library -->
+  <link rel="stylesheet" href="ev/ev.css">
+  <script src="ev/ev.js"></script>
+
+  <!-- custom css -->
+  <style>
+  body {
+    width: 800px;
+    margin: auto;
+  }
+
+  code {
+    display: block;
+    border: 1px solid rgb(217, 217, 217);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  </style>
+
+  <!-- custom js -->
+  <script>
+    var ev = new Ev();
+
+    function go() {
+      ev.window('Hi<br><button class="ev ev-red" onclick="ev.boom()">X</button>',{
+        color: 'ev-green',
+        size: {width:100,height:100}
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Evveze Docs</h1>
+  <h2>Buttons</h2>
+
+  <button class="ev">W</button>
+  <code class="prettyprint">
+    &lt;button class="ev"&gt;W&lt;/button&gt;
+  </code>
+
+  <button class="ev ev-green">G</button>
+  <code class="prettyprint">
+    &lt;button class="ev ev-green"&gt;W&lt;/button&gt;
+  </code>
+
+  <button class="ev ev-red">R</button>
+  <code class="prettyprint">
+    &lt;button class="ev ev-red"&gt;W&lt;/button&gt;
+  </code>
+
+  <button class="ev ev-blue">B</button>
+  <code class="prettyprint">
+    &lt;button class="ev ev-blue"&gt;W&lt;/button&gt;
+  </code>
+
+  <button class="ev ev-yellow">Y</button>
+  <code class="prettyprint">
+    &lt;button class="ev ev-yellow"&gt;W&lt;/button&gt;
+  </code>
+
+  <h3>Colours and Styles</h3>
+
+  <p>
+    The full set of color options for ev classes are:<br>
+    <ul>
+      <li>ev</li>
+      <li>ev-green</li>
+      <li>ev-red</li>
+      <li>ev-yellow</li>
+      <li>ev-green</li>
+      <li>ev-blue</li>
+    </ul>
+
+    These apply to buttons, windows, and any other UI element. They can also be combined with:
+    <ul>
+      <li>ev-glass</li>
+      <li>ev-lg</li>
+      <li>ev-presentation</li>
+    </ul>
+    Examples below.
+  </p>
+
+  <button class="ev ev-lg ev-green">Button</button>
+  <code class="prettyprint">
+    &lt;button class="ev ev-lg ev-green"&gt;Button&lt;/button&gt;
+  </code>
+
+  <button class="ev ev-lg ev-blue ev-glass">Glass Button</button>
+  <code class="prettyprint">
+    &lt;button class="ev ev-lg ev-blue ev-glass"&gt;Glass Button&lt;/button&gt;
+  </code>
+
+  <button class="ev ev-lg ev-yellow ev-glass ev-presentation">Presentation Style Glass Button</button>
+  <code class="prettyprint">
+    &lt;button class="ev ev-lg ev-yellow ev-glass ev-presentation"&gt;Presentation Style Glass Button&lt;/button&gt;
+  </code>
+
+
+  <h2> Forms </h2>
+  <p>Unfortunately, as of right now only textbox and text area are avaliable. This is because most elements are not allowed to be styled on most platforms</p>
+  <input class="ev" placeholder="Text Box" type="text">
+  <code class="prettyprint">
+    &lt;input class="ev" placeholder="Text Box" type="text"&gt;
+  </code>
+
+  <textarea class="ev ev-red">Text Area</textarea>
+  <code class="prettyprint">
+    &lt;textarea class="ev ev-red"&gt;Text Area&lt;/textarea&gt;
+  </code>
+
+  Number: <input class="ev" type="number" name="quantity" min="1" max="5">
+  <code class="prettyprint">
+    Number: &lt;input class="ev" type="number" name="quantity" min="1" max="5"&gt;
+  </code>
+
+  <h2> Windows </h2>
+  <p>Windows open with javascript and act like alert boxes</p>
+
+  <button class="ev ev-lg ev-green" onclick="go()">Open</button><br>
+  <code class="prettyprint">
+    &lt;button class="ev ev-lg ev-green" onclick="go()"&gt;Open&lt;/button&gt;
+  </code>
+
+  Javascript:
+  <code class="prettyprint">
+    var ev = new Ev();<br />
+    <br />
+    function go() {<br />
+      &emsp;&emsp;ev.window('Hi&lt;br&gt;&lt;button class="ev ev-red" onclick="ev.boom()"&gt;X&lt;/button&gt;',{<br />
+        &emsp;&emsp;&emsp;&emsp;color: 'ev-green',<br />
+        &emsp;&emsp;&emsp;&emsp;size: {width:100,height:100}<br />
+      &emsp;&emsp;});<br />
+    }
+  </code>
+
+  <h3>Closing window</h3>
+  Closing the active window is a simple js function.
+  <code class="prettyprint">
+    ev.boom();
+  </code>
+
+
+</body>
+</html>

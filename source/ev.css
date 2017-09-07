@@ -1,0 +1,221 @@
+<!--
+
+button.ev
+  ev-lg
+  ev-glass
+  ev-outline
+  ev-presentation
+
+COLORS
+  ev-green
+  ev-red
+  ev-blue
+  ev-yellow
+  ev-white
+
+-->
+
+@font-face {
+  font-family: kenvector;
+  src: url('ev/kenvector_future_thin.ttf');
+}
+
+:root {
+  --ev-font-size: 12px;
+}
+
+body {
+  font-family: kenvector;
+  font-size: 12px;
+}
+
+.ev {
+  --border: #D5D5D5;
+  --outline: #FFFFFF;
+  --grad-top: #FFFFFF;
+  --grad-bottom: #EEEEEE;
+  --shadow: #AAAAAA;
+  font-family: kenvector;
+  font-size: var(--ev-font-size);
+}
+
+.ev-green {
+  --border: #62AF42;
+  --outline: #9CDD81;
+  --grad-top: #8BDE67;
+  --grad-bottom: #78CC55;
+  --shadow: #498231;
+}
+
+.ev-red {
+  --border: #CB5D22;
+  --outline: #EF9263;
+  --grad-top: #F8813E;
+  --grad-bottom: #E66828;
+  --shadow: #A84E1D;
+}
+
+.ev-blue {
+  --border: #238AB6;
+  --outline: #5DC4EF;
+  --grad-top: #3EBBF1;
+  --grad-bottom: #2BA8DF;
+  --shadow: #1D6F91;
+}
+
+.ev-yellow {
+  --border: #CCA323;
+  --outline: #FED856;
+  --grad-top: #FED856;
+  --grad-bottom: #FECB2F;
+  --shadow: #A7851B;
+}
+
+.ev:before, .ev:after {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  content: "";
+  margin: 0px;
+  padding: 0px;
+}
+
+/* input */
+
+input[type='text'].ev,
+  .ev-textbox,
+  textarea.ev,
+  input[type='number'].ev {
+
+  height: 25px;
+  line-height: 20px;
+  padding: 5px;
+  outline: 0px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  min-width: 150px;
+}
+
+input[type='number'].ev {
+  min-width: auto;
+}
+
+/* button */
+
+button.ev, .ev-button.ev {
+  --height: 40px;
+  position: relative;
+  border: 0px;
+  border-bottom: 8px solid var(--shadow);
+  background: linear-gradient(var(--grad-top), var(--grad-bottom));
+  border-radius: 5px;
+  padding: 10px;
+  height: var(--height);
+  line-height: calc(var(--height) - 24px);
+  width: 40px;
+  margin: 5px;
+  text-align: center;
+  white-space: nowrap;
+  color: black;
+}
+
+button.ev.ev-lg, .ev-button.ev.ev-lg {
+  min-width: 150px;
+  width: auto;
+}
+
+button.ev.ev-presentation, .ev-button.ev.ev-presentation {
+  --height: 60px;
+  min-width: 150px;
+  width: auto;
+  font-size: 140%;
+}
+
+button.ev.ev-glass, .ev-button.ev.ev-glass {
+  background: linear-gradient(to bottom, var(--grad-top) 0%,var(--grad-top) 58%,var(--grad-bottom) 59%,var(--grad-bottom) 100%);
+}
+
+button.ev:active, .ev-button.ev:active {
+  border-bottom: 0px solid var(--shadow);
+  top: 5px;
+  height: calc(var(--height) - 8px);
+  margin-bottom: 13px;
+  color: black;
+}
+
+button.ev::after, .ev-button.ev::after {
+  border: 2px solid var(--outline);
+  border-radius: 3px;
+  width: calc(100% - 8px);
+  height: calc(100% - 4px);
+  top: 2px;
+  left: 2px;
+}
+
+button.ev::before, .ev-button.ev::before {
+  border: 2px solid var(--border);
+  border-radius: 5px;
+  width: calc(100% - 4px);
+  height: calc(100%);
+}
+
+/* window */
+.ev-window {
+  z-index: 90;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.1);
+}
+
+.ev-w-content * {
+  z-index: 95;
+}
+
+.ev-w-content {
+  z-index: 95;
+  position: block;
+  border: 1px solid black;
+  width: 100px;
+  height: 200px;
+  margin: auto;
+  margin-top: calc(50vh - 150px);
+
+  /* style */
+  position: relative;
+  border: 0px;
+  background: var(--grad-bottom);
+  border-radius: 5px;
+  padding: 10px;
+  color: black;
+}
+
+.ev-w-content::after {
+  content: "";
+  position: absolute;
+  z-index: 94;
+  border: 1px solid var(--outline);
+  border-radius: 3px;
+  width: calc(100% - 6px);
+  height: calc(100% - 3px);
+  top: 2px;
+  left: 2px;
+}
+
+.ev-w-content::before {
+  content: "";
+  position: absolute;
+  z-index: 94;
+  top: 0px;
+  left: 0px;
+  border: 2px solid var(--border);
+  border-radius: 5px;
+  width: calc(100% - 4px);
+  height: calc(100% - 1px);
+}
