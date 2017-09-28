@@ -34,9 +34,12 @@
     var ev = new Ev();
 
     function go() {
-      ev.window('Hi<br><button class="ev ev-red" onclick="ev.boom()">X</button>',{
+      ev.window('<h1>My Window</h1><br>This is some content<br><button class="ev ev-red ev-lg" onclick="ev.boom()">Close</button>',{
         color: 'ev-green',
-        size: {width:100,height:100}
+        size: {width:500,height:300},
+        interface: true,
+        draggable: true,
+        padding: 10
       });
     }
   </script>
@@ -139,9 +142,11 @@
     var ev = new Ev();<br />
     <br />
     function go() {<br />
-      &emsp;&emsp;ev.window('Hi&lt;br&gt;&lt;button class="ev ev-red" onclick="ev.boom()"&gt;X&lt;/button&gt;',{<br />
+      &emsp;&emsp;ev.window('&lt;h1&gt;My Window&lt;/h1&gt;&lt;br&gt;This is some content&lt;br&gt;&lt;button class="ev ev-red ev-lg" onclick="ev.boom()"&gt;Close&lt;/button&gt;',{<br />
         &emsp;&emsp;&emsp;&emsp;color: 'ev-green',<br />
-        &emsp;&emsp;&emsp;&emsp;size: {width:100,height:100}<br />
+        &emsp;&emsp;&emsp;&emsp;size: {width:500,height:300},<br />
+        &emsp;&emsp;&emsp;&emsp;interface: true,<br />
+        &emsp;&emsp;&emsp;&emsp;draggable: true<br />
       &emsp;&emsp;});<br />
     }
   </code>

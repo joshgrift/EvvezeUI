@@ -169,23 +169,20 @@ button.ev::before, .ev-button.ev::before {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  top: 0px;
-  left: 0px;
+  top: 2px;
+  left: 2px;
   background-color: rgba(0,0,0,0.1);
 }
 
 .ev-w-content * {
   z-index: 95;
+  user-select: none;
 }
 
 .ev-w-content {
   z-index: 95;
   position: block;
   border: 1px solid black;
-  width: 100px;
-  height: 200px;
-  margin: auto;
-  margin-top: calc(50vh - 150px);
 
   /* style */
   position: relative;
@@ -218,4 +215,25 @@ button.ev::before, .ev-button.ev::before {
   border-radius: 5px;
   width: calc(100% - 4px);
   height: calc(100% - 1px);
+}
+
+.ev-w-content h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+span.ev-w-interface {
+  height: 20px;
+  width: 20px;
+  font-size: 30px;
+  color: var(--grad-bottom);
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  transform: rotate(45deg);
+}
+
+span.ev-w-interface:active {
+  color: var(--grad-border);
 }

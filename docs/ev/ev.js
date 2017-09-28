@@ -1,6 +1,8 @@
 class Ev {
   constructor(){
     this.current = null;
+    this.offX = 0;
+    this.offY = 0;
   }
 
   window(content, options){
@@ -16,14 +18,46 @@ class Ev {
 
     $('body').append(html);
 
+    if(options.draggable){
+      $('.ev-w-content')[0].addEventListener('mousedown', ev.mouseDown, false);
+      window.addEventListener('mouseup', ev.mouseUp, false);
+    }
+
+    if(options.interface){
+      $('.ev-w-content').append('<span class="ev ev-red ev-w-interface" onclick="ev.boom()">+</span>')
+    }
+
+    if(options.padding){
+      $('.ev-w-content').css('padding',options.padding);
+    }
+
     if(options.size){
-      $('section.ev-window').css('width',options.size[0]).css('height',options.size[1]);
+      $('.ev-w-content').css('width',options.size.width).css('height',options.size.height);
+      $('.ev-w-content').css('top',(window.innerHeight - options.size.height)/2).css('left',(window.innerWidth - options.size.width)/2);
     } else {
-      $('section.ev-window').css('width',200).css('height',300);
+      $('.ev-w-content').css('width',300).css('height',200);
     }
   }
 
   boom(){
     $('.ev-window').remove();
+  }
+
+  mouseUp(){
+    window.removeEventListener('mousemove', ev.divMove, true);
+  }
+
+  mouseDown(e){
+    var div = $('.ev-w-content')[0];
+    ev.offY = e.clientY - parseInt(div.offsetTop);
+    ev.offX = e.clientX - parseInt(div.offsetLeft);
+    window.addEventListener('mousemove', ev.divMove, true);
+  }
+
+  divMove(e){
+    var div = $('.ev-w-content')[0];
+    div.style.position = 'absolute';
+    div.style.top = (e.clientY - ev.offY) + 'px';
+    div.style.left = (e.clientX - ev.offX) + 'px';
   }
 }
